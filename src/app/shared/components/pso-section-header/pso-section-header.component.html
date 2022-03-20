@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar class="pso-toolbar">
+    <ion-icon
+      [routerLink]="routeBack || '../../'"
+      name="chevron-back-outline"
+      slot="start">
+    </ion-icon>
+    <div 
+      slot="end"
+      *ngIf="image" 
+      class="logo-container">
+      <img [src]="image" />
+    </div>
+  </ion-toolbar>
+</ion-header>

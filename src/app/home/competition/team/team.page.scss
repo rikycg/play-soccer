@@ -1,0 +1,35 @@
+:host {
+  .pso-container {
+    background-image: url('../../../../assets/team/bg.jpg');
+  }
+  pso-loading {
+    --item-width: 100%;
+    --item-height: 44px;
+  }
+  .team-info {
+    display: flex;
+    position: absolute;
+    bottom: 60%;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-end;
+    pso-section-subheader {
+      position: relative;
+    }
+    &__stadium {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      text-align: right;
+      width: 100%;
+      align-items: flex-end;
+      img {
+        width: 100px;
+      }
+      p {
+        color: white;
+        margin-bottom: 0px;
+      }
+    }
+  }
+}

@@ -1,20 +1,53 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content 
+  [scrollY]="false"
+  [fullscreen]="true">
+  
+  <pso-section-subheader 
+    subtitle="Select your favorite Competition. We cover the best."
+    title="Welcome">
+  </pso-section-subheader>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <main class="pso-sheet">
+
+    <ion-header [translucent]="true">
+      <ion-toolbar class="pso-toolbar">
+        <h3 slot="start">
+          Competitions
+        </h3>
+        <ion-select 
+          [(ngModel)]="year"
+          placeholder="Season" 
+          slot="end">
+          <ion-select-option [value]="2022">2022</ion-select-option>
+          <ion-select-option [value]="2021">2021</ion-select-option>
+          <ion-select-option [value]="2020">2020</ion-select-option>
+          <ion-select-option [value]="2019">2019</ion-select-option>
+        </ion-select>
+      </ion-toolbar>
+    </ion-header>
+    
+    <!-- Competitions -->
+    <ion-content 
+      class="pso-content"
+      [fullscreen]="true">
+      <pso-section 
+        [season]="year"
+        base="./competition/"
+        [status]="status"
+        [items]="competitions">
+      </pso-section>
+    </ion-content>
+
+  </main>
+
+  <!-- Backgrounds -->
+  <ion-slides 
+    [options]="sliderOptions">
+    <ion-slide 
+      *ngFor="let bg of backgrounds" 
+      [ngStyle]="{ 'background-image': bg }">
+    </ion-slide>
+  </ion-slides>
+
 </ion-content>

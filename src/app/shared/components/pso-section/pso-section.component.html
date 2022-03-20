@@ -1,0 +1,19 @@
+<ion-grid *ngIf="status.isLoad">
+  <ion-row>
+    <ion-col *ngFor="let item of list">
+      <pso-item
+        [routerLink]="item.link"
+        [image]="item.image">
+      </pso-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<pso-loading 
+  *ngIf="status.isLoading" 
+  [items]="status.getLoadingBlocks(12)">
+</pso-loading>
+
+<pso-empty 
+  *ngIf="status.isError">
+</pso-empty>

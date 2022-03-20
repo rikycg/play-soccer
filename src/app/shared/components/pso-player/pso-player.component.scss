@@ -1,0 +1,16 @@
+:host {
+  ion-item {
+    --padding-start: 0px;
+    --border-width: 0px;
+    --border-color: transparent;
+    --inner-padding-end: 0px;
+    --padding-top: 5px;
+    --padding-bottom: 5px;
+    p {
+      margin: 0px;
+    }
+    div:last-child {
+      text-align: right;
+    }
+  }
+}

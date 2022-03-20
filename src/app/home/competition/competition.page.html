@@ -1,0 +1,33 @@
+<ion-content 
+  [scrollY]="false"
+  [fullscreen]="true">
+  <div class="pso-container">
+
+    <pso-section-header 
+      routeBack="../../../"
+      [image]="logo">
+    </pso-section-header>
+  
+    <pso-section-subheader 
+      *ngIf="competition"
+      subtitle="Select your favorite team."
+      [title]="name">
+    </pso-section-subheader>
+  
+    <main class="pso-sheet">
+      
+      <!-- Teams -->
+      <ion-content 
+        class="pso-content"
+        [fullscreen]="true">
+        <pso-section 
+          base="./team/"
+          [status]="status"
+          [items]="teams">
+        </pso-section>
+      </ion-content>
+  
+    </main>
+    
+  </div>
+</ion-content>

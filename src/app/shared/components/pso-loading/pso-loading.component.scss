@@ -1,0 +1,9 @@
+:host {
+  --item-width: 98px;
+  --item-height: 98px;
+  ion-skeleton-text {
+    height: var(--item-height);
+    width: var(--item-width);
+    border-radius: 5px;
+  }
+}

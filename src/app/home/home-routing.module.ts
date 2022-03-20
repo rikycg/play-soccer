@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+  },
+  {
+    path: 'competition/:id/:season',
+    loadChildren: () => import('./competition/competition.module').then( m => m.CompetitionPageModule)
   }
 ];
 

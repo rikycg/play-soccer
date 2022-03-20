@@ -1,0 +1,14 @@
+<ion-grid *ngIf="mode === 'grid'">
+  <ion-row>
+    <ion-col *ngFor="let item of items">
+      <ion-skeleton-text animated></ion-skeleton-text>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-row *ngIf="mode !== 'grid'">
+  <ion-skeleton-text
+    *ngFor="let item of items"
+    animated>
+  </ion-skeleton-text>
+</ion-row>
