@@ -11,7 +11,7 @@ export class PsoSectionComponent implements OnInit {
   @Input() base = '';
   @Input() season: number = null;
   @Input() items: any[] = [];
-  @Input() status: StatusUtil;
+  @Input() status: StatusUtil = new StatusUtil();
   @Input() errorMessage = '';
 
   constructor() { }

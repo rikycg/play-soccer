@@ -1,6 +1,6 @@
 <ion-grid *ngIf="status.isLoad">
   <ion-row>
-    <ion-col *ngFor="let item of list">
+    <ion-col *ngFor="let item of list" size="auto">
       <pso-item
         [routerLink]="item.link"
         [image]="item.image">

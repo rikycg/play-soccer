@@ -21,4 +21,11 @@ describe('PsoSectionComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('list should be an array', () => {
+    const spy = spyOnProperty(component, 'list').and.callThrough();
+    expect(component.list).toBeInstanceOf(Array);
+    expect(spy).toHaveBeenCalled();
+  });
+
 });

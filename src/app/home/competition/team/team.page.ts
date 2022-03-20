@@ -40,7 +40,6 @@ export class TeamPage extends PageHelper implements OnInit {
       this.status.setLoading();
       const teamId = this.route.snapshot.params.id || null;
       const response = await this.requestService.get(`teams/${teamId}`);
-      console.log(response);
       this.team = new Team(response);
       this.status.setData();
     } catch(err) {

@@ -38,23 +38,27 @@ export class HomePage extends PageHelper implements OnInit  {
   ngOnInit() {
     this.ionSlides.startAutoplay();
     if(this.competitions.length === 0) {
-      this.getCompetitions();
+      this.setCompetitions();
     }
   }
 
-  async getCompetitions() {
+  async setCompetitions() {
     try {
       this.status.setLoading();
-      const competitions = await this.requestService.get(
-        'competitions',
-        'competitions',
-        (item) => item.plan === 'TIER_ONE'
-      );
-      this.competitions = competitions.map(c => (new Competition(c)));
+      this.competitions = await this.getCompetitions();
       this.status.setData();
     } catch(err) {
       this.status.setError();
     }
+  }
+
+  async getCompetitions(): Promise<Competition[]> {
+    const competitions = await this.requestService.get(
+      'competitions',
+      'competitions',
+      (item) => item.plan === 'TIER_ONE'
+    );
+    return competitions ? competitions.map(c => (new Competition(c))) : [];
   }
 
 }

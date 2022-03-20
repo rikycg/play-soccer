@@ -12,18 +12,16 @@ export class RequestService {
 
   constructor(private http: HttpClient) {}
 
-  async getTeam() {
-    return this.get('teams');
-  }
-
   public get(path: string, key?: string, filter?: (e,i) => boolean): any {
     const url = `${environment.api}${path}`;
     return this.http.get(url, this.options)
     .toPromise()
-    .then(res => {
-      const info: any[] | object = key ? res[key] : res;
-      return filter && Array.isArray(info) ? info.filter(filter) : info;
-    });
+    .then(res => this.formatResponse(res, key, filter));
+  }
+
+  public formatResponse(res, key?: string, filter?: (e,i) => boolean) {
+    const info: any[] | object = key ? res[key] : res;
+    return filter && Array.isArray(info) ? info.filter(filter) : info;
   }
 
 }
