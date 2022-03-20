@@ -13,6 +13,8 @@
     justify-content: space-between;
     width: 100%;
     align-items: flex-end;
+    max-width: 550px;
+    z-index: 10;
     pso-section-subheader {
       position: relative;
     }

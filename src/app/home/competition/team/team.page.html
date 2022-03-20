@@ -1,57 +1,57 @@
 <ion-content 
+  class="pso-content-main"
   [scrollY]="false"
   [fullscreen]="true">
-  <div class="pso-container">
+  
+  <div class="pso-cover"></div>
+  <div class="pso-container"></div>
 
-    <pso-section-header 
-      [image]="logo">
-    </pso-section-header>
-
-    
-    <div class="team-info" *ngIf="team">
-      <pso-section-subheader 
-        [subtitle]="website"
-        [title]="name">
-      </pso-section-subheader>
-      <div class="team-info__stadium">
-        <img src="../../../../assets/team/stadium.png">
-        <p>{{ team.venue }}</p>
-      </div>
+  <pso-section-header 
+    [image]="logo">
+  </pso-section-header>
+  
+  <div class="team-info" *ngIf="team">
+    <pso-section-subheader 
+      [subtitle]="website"
+      [title]="name">
+    </pso-section-subheader>
+    <div class="team-info__stadium">
+      <img src="../../../../assets/team/stadium.png">
+      <p>{{ team.venue }}</p>
     </div>
-  
-
-    <main class="pso-sheet">
-
-      <!-- Teams -->
-      <ion-content 
-        class="pso-content"
-        [fullscreen]="true">
-
-        <h1>Squad</h1>
-        
-        <div class="squad" *ngIf="status.isLoad && team">
-          <pso-player 
-            *ngFor="let player of team.squad"
-            [name]="player.name"
-            [position]="player.position"
-            [nationality]="player.nationality"
-            [dateOfBirth]="player.dateOfBirth">
-          </pso-player>
-          <pso-empty 
-            message="Sorry, there isn\'t information about the squad"
-            *ngIf="team.squad.length === 0">
-          </pso-empty>
-        </div>
-
-        <pso-loading 
-          mode="row"
-          [items]="status.getLoadingBlocks(10)"
-          *ngIf="status.isLoading">
-        </pso-loading>
-
-      </ion-content>
-  
-    </main>
-
   </div>
+
+  <main class="pso-sheet">
+
+    <!-- Teams -->
+    <ion-content 
+      class="pso-content"
+      [fullscreen]="true">
+
+      <h1>Squad</h1>
+      
+      <div class="squad" *ngIf="status.isLoad && team">
+        <pso-player 
+          *ngFor="let player of team.squad"
+          [name]="player.name"
+          [position]="player.position"
+          [nationality]="player.nationality"
+          [dateOfBirth]="player.dateOfBirth">
+        </pso-player>
+        <pso-empty 
+          message="Sorry, there isn\'t information about the squad"
+          *ngIf="team.squad.length === 0">
+        </pso-empty>
+      </div>
+
+      <pso-loading 
+        mode="row"
+        [items]="status.getLoadingBlocks(10)"
+        *ngIf="status.isLoading">
+      </pso-loading>
+
+    </ion-content>
+
+  </main>
+
 </ion-content>
